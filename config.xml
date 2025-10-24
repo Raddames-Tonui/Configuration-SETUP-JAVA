@@ -13,6 +13,7 @@
     <dataSource>
         <driverClassName mode="TEXT">org.postgresql.ds.PGSimpleDataSource</driverClassName>
         <jdbcUrl mode="TEXT">jdbc:postgresql://localhost:5432/online_exams</jdbcUrl>
+
         <user mode="TEXT">admin</user>
         <password mode="TEXT">$N2020</password>
 

@@ -30,7 +30,7 @@ import java.util.Base64;
 public class ConfigEncryptor {
 
     // --- Crypto params ---
-    private static final int PBKDF2_ITERATIONS = 200_000;
+    private static final int PBKDF2_ITERATIONS = 200_000; // defines how many iterations the PBKDF2 key derivation algorithm performs when turning your password (like MyStrongKey123) into a strong 256-bit AES key.
     private static final int KEY_BITS = 256;                 // requires JCE unlimited (default on modern JDKs)
     private static final int SALT_BYTES = 16;
     private static final int IV_BYTES = 12;                  // GCM recommended
@@ -115,7 +115,7 @@ public class ConfigEncryptor {
 
     // --- XML IO ---
     private static Document readXml(String path) throws Exception {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();   // Configure XML parsing
         dbf.setNamespaceAware(false);
         dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true); // prevent XXE
         DocumentBuilder db = dbf.newDocumentBuilder();
