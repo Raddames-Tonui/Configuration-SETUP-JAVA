@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--  Undertow Server Configuration -->
+    <server>
+        <host mode="TEXT">localhost</host>
+        <port mode="TEXT">8002</port>
+        <ioThreads mode="TEXT">4</ioThreads>
+        <workerThreads mode="TEXT">16</workerThreads>
+        <basePath mode="TEXT">/api/rest</basePath>
+    </server>
+
+    <!-- PostgreSQL Data Source Configuration -->
+    <dataSource>
+        <driverClassName mode="TEXT">org.postgresql.ds.PGSimpleDataSource</driverClassName>
+        <jdbcUrl mode="TEXT">jdbc:postgresql://localhost:5432/online_exams</jdbcUrl>
+        <user mode="TEXT">admin</user>
+        <password mode="TEXT">$N2020</password>
+
+        <!-- SSL Fix -->
+        <encrypt mode="TEXT">true</encrypt>
+        <trustServerCertificate mode="TEXT">true</trustServerCertificate>
+    </dataSource>
+
+    <!-- HikariCP Connection Pool Configuration -->
+    <connectionPool>
+        <maximumPoolSize mode="TEXT">10</maximumPoolSize>
+        <minimumIdle mode="TEXT" >2</minimumIdle>
+        <idleTimeout mode="TEXT">60000</idleTimeout>
+        <connectionTimeout mode="TEXT">30000</connectionTimeout>
+        <maxLifetime mode="TEXT">1800000</maxLifetime>
+    </connectionPool>
+
+    <!-- Logging -->
+    <logging>
+        <level mode="TEXT">INFO</level>
+        <logFile mode="TEXT">logs/skyworld-db.log</logFile>
+    </logging>
+</configuration>

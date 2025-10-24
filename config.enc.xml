@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+        
+    <!--  Undertow Server Configuration -->
+        
+    <server>
+                
+        <host mode="ENCRYPTED">v1:gcm:pbkdf2:h9LH/gaJgowMsoxBdPUycw:CTu16MCxQdaiLo0R:89ELapQK5zf3sWlmc5hUHk/q+AQ6FyEF5Q</host>
+                
+        <port mode="ENCRYPTED">v1:gcm:pbkdf2:4POahxdnOI1Ud0ANo+u7vw:EbsSopZF4LGMkdwE:hWYDdZ8Wm/7vxZkhED+K/NzzR18</port>
+                
+        <ioThreads mode="ENCRYPTED">v1:gcm:pbkdf2:UFFhOCcptXp0Z6YRKonKFw:DE5XS0s2kPLibakd:l7AV2MqVKG6nsY1VrtVSgZI</ioThreads>
+                
+        <workerThreads mode="ENCRYPTED">v1:gcm:pbkdf2:2bkuEgbJSJjfOi/clIozcw:+hR1XjqvNXgkh9yR:u5taD1dPOL/6ZvfVKaKIrKb1</workerThreads>
+                
+        <basePath mode="ENCRYPTED">v1:gcm:pbkdf2:CfpPQuDGELgQpzAXPJ/82Q:HMt6xiBRbdlcehdW:7tO7rl8E9mZITnK6ZcR12cZaAsTstEVp7Q</basePath>
+            
+    </server>
+        
+    <!-- PostgreSQL Data Source Configuration -->
+        
+    <dataSource>
+                
+        <driverClassName mode="ENCRYPTED">v1:gcm:pbkdf2:ipgsNij/Hs/ESxk6BZjhPQ:UDR4wT/7bvaudRmp:xtgyc8bajU9okStyKtToYwLKRpimWgjOJkMC/0qPAvy2UKEggDfNrS3pdc4uLGU53MV5aw</driverClassName>
+                
+        <jdbcUrl mode="ENCRYPTED">v1:gcm:pbkdf2:oJ2LguZjueIh1LwtD0GebA:JDo+ySV3Deh4uuXn:2RE/c3/BxDbspC1jJAExJLVkjM7xuRyvV+b9g+XRv5vqTFxkUe6EXBagAn2dc0eMvrAJbJ+WOjR3PHfUFg</jdbcUrl>
+                
+        <user mode="ENCRYPTED">v1:gcm:pbkdf2:aMF8vQl2/3gANHPsZNSGog:zH560O1NoTd/a4Wv:ZTcTtNlZPv6VGz+7KsWBTnqBr874</user>
+                
+        <password mode="ENCRYPTED">v1:gcm:pbkdf2:8cFoxiu4qwWCIC1Orn5lbQ:QQs6F3QKTJqiAK28:9ilBLRQNUDBfPgfQ1d3VxS8vFPCwnA</password>
+                
+        <!-- SSL Fix -->
+                
+        <encrypt mode="ENCRYPTED">v1:gcm:pbkdf2:JAjWhZOE88m2GzrJgKurTQ:cVLnP/f9pnn/mC9v:wUW0j1zEK5k5kqxSIcZ/ikU9Z7w</encrypt>
+                
+        <trustServerCertificate mode="ENCRYPTED">v1:gcm:pbkdf2:hfoZflYP2+cZvYSGu9vyzQ:VX5UVHLTuVAE7WIe:EIvmRHbr1f/Zh01GvQETHPZUeco</trustServerCertificate>
+            
+    </dataSource>
+        
+    <!-- HikariCP Connection Pool Configuration -->
+        
+    <connectionPool>
+                
+        <maximumPoolSize mode="ENCRYPTED">v1:gcm:pbkdf2:qDUc5S962GW8N9QMZegtfw:R8ovtanRMt+Kj4lN:/skxd8YbafdyBteJwUGE1ul0</maximumPoolSize>
+                
+        <minimumIdle mode="ENCRYPTED">v1:gcm:pbkdf2:wHmYle43fFOfRSgqpAtOFg:9fTNSV6Ww4yLtDiX:qsXHJ/NGW75Q44oT/0aiFug</minimumIdle>
+                
+        <idleTimeout mode="ENCRYPTED">v1:gcm:pbkdf2:0lGNiNZPuKK4n9BY76QhaA:RWrtVR8P10MTbqU6:O8xfhaNsHaUuGouLBVN92I9OBCKD</idleTimeout>
+                
+        <connectionTimeout mode="ENCRYPTED">v1:gcm:pbkdf2:aeViXhmRp9YgmDYGKueW4A:pt6gzGutI8QplH1Y:X1DNQVuHFkBqPV2oX4EF48n7AI1B</connectionTimeout>
+                
+        <maxLifetime mode="ENCRYPTED">v1:gcm:pbkdf2:5gGtRfRBVe8vRKS+WCtOcA:X5VTph5LTmmcJDBJ:+rjK5slMp/eC80CN7bv1Vi0a/26LQKE</maxLifetime>
+            
+    </connectionPool>
+        
+    <!-- Logging -->
+        
+    <logging>
+                
+        <level mode="ENCRYPTED">v1:gcm:pbkdf2:F+s0LHiKS9MIJofdcAsJGw:Xvi+Ck6+0gEiy+Vj:kycRxXOA9fBJUXNCCvwvWghiRTs</level>
+                
+        <logFile mode="ENCRYPTED">v1:gcm:pbkdf2:73rCdrLrF+tdTu/a+fj81g:FGdI3WLg9fhaPsiA:5RmQ0oRfJHtwXfX/Lx20UJNhmEuYAwfuLS9u+ql5cVRfo4aM</logFile>
+            
+    </logging>
+    
+</configuration>
