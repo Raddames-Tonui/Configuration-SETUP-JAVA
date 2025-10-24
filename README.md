@@ -1,4 +1,4 @@
-# ConfigEncryptor Project
+# ConfigEncryptor SAMPLE
 
 ## 📁 Project Structure
 
@@ -167,6 +167,106 @@ java -cp target/classes org.frostyte.config.ConfigLoader
 ```
 
 ---
+
+## ⚙️ High-Level Workflow
+
+### 1️⃣ You invoke it
+
+You run the command (in IntelliJ as argument parameter):
+
+```bash
+encrypt --in config.xml --out config.enc.xml --pass MyStrongKey123
+```
+
+This tells the tool:
+
+* **Action:** encrypt
+* **Input file:** config.xml
+* **Output file:** config.enc.xml
+* **Encryption password:** MyStrongKey123
+
+---
+
+### 2️⃣ The XML file is parsed
+
+The program loads `config.xml` and scans every element that has a `mode` attribute.
+Example:
+
+```xml
+<password mode="TEXT">$N2020</password>
+```
+
+---
+
+### 3️⃣ Encryption happens (for mode="TEXT")
+
+For each such element:
+
+* It generates a **random salt** and **IV (nonce)**.
+* Derives a **strong AES-256 key** from your password using **PBKDF2-HMAC-SHA256 (200k iterations)**.
+* Encrypts the plaintext using **AES/GCM/NoPadding** (authenticated encryption).
+* Replaces the original text with a compact encoded payload:
+
+```xml
+<password mode="ENCRYPTED">
+    v1:gcm:pbkdf2:<salt>:<iv>:<ciphertext>
+</password>
+```
+
+and changes `mode="TEXT"` → `mode="ENCRYPTED"`.
+
+---
+
+### 4️⃣ The new file is written
+
+A new XML file (`config.enc.xml`) is created containing only encrypted values.
+Anyone reading it sees unreadable Base64 strings.
+
+---
+
+### 5️⃣ Decryption is the mirror
+
+You later run:
+
+```bash
+decrypt --in config.enc.xml --out config.dec.xml --pass MyStrongKey123
+```
+
+The tool:
+
+* Scans for elements with `mode="ENCRYPTED"`.
+* Parses salt, IV, and ciphertext.
+* Re-derives the same AES key from your password.
+* Decrypts back to plaintext.
+* Replaces content and switches back to `mode="TEXT"`.
+
+---
+
+### 6️⃣ Output confirmed
+
+Console prints:
+
+```
+Done → config.dec.xml
+```
+
+Your file is restored exactly as it was before — same XML structure, same formatting.
+
+---
+
+## 🔐 Security Highlights
+
+* Each value uses a **unique salt + IV**, so even identical passwords or hostnames encrypt differently.
+* **AES-256-GCM** ensures both confidentiality and authenticity (detects tampering).
+* **PBKDF2 key derivation** prevents brute-force attacks.
+
+---
+
+### In short:
+
+> The encryptor reads your XML → finds every `mode="TEXT"` node → securely replaces its value with an authenticated ciphertext and switches to `mode="ENCRYPTED"`.
+> The decryptor reverses that perfectly wh
+
 
 ## 🧱 Summary
 
